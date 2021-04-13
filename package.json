@@ -1,7 +1,6 @@
 {
   "name": "reacstore",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/reacstore.js",
   "devDependencies": {
     "react": "^16.0.0",
