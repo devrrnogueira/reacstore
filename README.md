@@ -8,7 +8,7 @@ Simple react store
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { createStore, useStore } from './reactive'
+import { createStore, useStore } from 'reacstore'
 
 createStore({
     count: 0

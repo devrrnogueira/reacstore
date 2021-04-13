@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { createStore, useStore } from './lib/reacstore'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+createStore({
+    count: 0
+})
+
+function MyComponent1() {
+    const [count] = useStore('count')
+    return (<h2>Component1: {count}</h2>)
 }
 
-export default App;
+function MyComponent2() {
+    const [count] = useStore('count')
+    return (<h2>Component2: {count}</h2>)
+}
+
+function App() {
+    const [ count, setCount ] = useStore('count')
+
+    function increment(){
+        setCount(count + 1)
+    }
+
+    return (
+        <>
+            <h1>{count}</h1>
+            <MyComponent1 />
+            <MyComponent2 />
+            <button onClick={increment}>increment</button>
+        </>
+    )
+}
+
+export default App
