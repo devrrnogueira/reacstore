@@ -26,7 +26,7 @@ function useStore(key) {
 
             if (Array.isArray(value)){
                 setData(value)
-            } else if (typeof(value) == 'object') {
+            } else if (value instanceof Object) {
                 setData({...value})
             } else {
                 setData(value)
@@ -34,9 +34,9 @@ function useStore(key) {
         })
 
         return ()=>{
-            window.setImmediate(()=>{
+            window.setTimeout(()=>{
                 dispatcher.off('data', fn)
-            })
+            }, 1)
         }
     })
 
