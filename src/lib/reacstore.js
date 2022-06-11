@@ -34,7 +34,7 @@ function useStore(key) {
         })
 
         return ()=>{
-            setImmediate(()=>{
+            window.setImmediate(()=>{
                 dispatcher.off('data', fn)
             })
         }
